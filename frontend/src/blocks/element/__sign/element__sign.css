@@ -1,0 +1,6 @@
+.element__sign {
+  max-width: 246px;
+  display: flex;
+  justify-content: space-between;
+  margin: 22px 20px 0 22px;
+}

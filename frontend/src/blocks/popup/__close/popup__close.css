@@ -1,0 +1,24 @@
+.popup__close {
+  aspect-ratio: 1/1;
+  width: 32px;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: url(../../../images/close_icon.svg) center / 32px no-repeat;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__close {
+    right: 0;
+    top: -36px;
+    width: 20px;
+    background-size: 20px;
+  }
+}

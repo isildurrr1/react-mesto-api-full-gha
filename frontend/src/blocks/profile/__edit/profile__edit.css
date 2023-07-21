@@ -1,0 +1,22 @@
+.profile__edit {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border: 1px solid white;
+  box-sizing: border-box;
+  background: url(../../../images/edit_icon.svg) center / 10px no-repeat;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.profile__edit:hover {
+  opacity: 0.6;
+}
+
+
+@media screen and (max-width: 503px) {
+  .profile__edit {
+    background-size: 8px;
+    margin-top: 8px;
+  }
+}

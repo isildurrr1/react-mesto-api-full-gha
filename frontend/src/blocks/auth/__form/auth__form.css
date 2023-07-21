@@ -1,0 +1,6 @@
+.auth__form {
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}

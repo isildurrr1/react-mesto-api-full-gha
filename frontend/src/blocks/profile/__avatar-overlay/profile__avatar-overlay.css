@@ -1,0 +1,16 @@
+.profile__avatar-overlay {
+  border-radius: 50%;
+  width: 100%;
+  /* background-color: #2A2C2F; */
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity 0.4s;
+  background: rgba(0, 0, 0, 0.8) url(../../../images/edit_icon.svg) center / 26px no-repeat;
+  opacity: 0;
+}
+
+.profile__avatar-overlay:hover {
+  opacity: 0.8;
+}

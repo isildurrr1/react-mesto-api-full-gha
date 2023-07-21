@@ -1,0 +1,16 @@
+.profile__cover {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+@media screen and (max-width: 776px) {
+  .profile__cover {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 394px) {
+  .profile__cover {
+    margin-bottom: 14px;
+  }
+}

@@ -1,0 +1,6 @@
+.element__like-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  min-height: 35px;
+}
