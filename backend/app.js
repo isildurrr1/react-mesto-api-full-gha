@@ -13,6 +13,7 @@ const {
 } = require('./middlewares/validation');
 
 const auth = require('./middlewares/auth');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
@@ -21,19 +22,19 @@ app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
+app.use(requestLogger);
+
 app.post('/signin', loginValid, login);
-
 app.post('/signup', createUserValid, createUser);
-
 app.use(auth);
-
 app.use('/users', require('./routes/users'));
-
 app.use('/cards', require('./routes/cards'));
 
 app.use((req, res, next) => {
   next(new NotFoundError('Некорректно указан путь'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use(handleErrors);
