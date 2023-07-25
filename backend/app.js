@@ -34,7 +34,9 @@ app.get('/crash-test', () => {
 
 app.post('/signin', loginValid, login);
 app.post('/signup', createUserValid, createUser);
+
 app.use(auth);
+
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 
