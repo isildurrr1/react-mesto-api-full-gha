@@ -18,6 +18,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
+console.log(process.env.JWT_SECRET);
 app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
