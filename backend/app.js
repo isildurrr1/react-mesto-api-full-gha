@@ -18,7 +18,6 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
-console.log(process.env.JWT_SECRET);
 app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
@@ -36,10 +35,10 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValid, login);
 app.post('/signup', createUserValid, createUser);
 
-app.use(auth);
+// app.use(auth);
 
-app.use('/users', require('./routes/users'));
-app.use('/cards', require('./routes/cards'));
+app.use('/users', auth, require('./routes/users'));
+app.use('/cards', auth, require('./routes/cards'));
 
 app.use((req, res, next) => {
   next(new NotFoundError('Некорректно указан путь'));
