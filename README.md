@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.101.248
+IP 51.250.101.248
 
 Frontend https://isildurrr1.nomoredomains.xyz
 
