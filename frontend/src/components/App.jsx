@@ -13,7 +13,7 @@ import Register from "./Register";
 import ProtectedRouteElement from "./ProtectedRoute";
 import { api } from "../utils/api";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import * as auth from '../utils/auth';
+import auth from '../utils/auth';
 import InfoTooltip from "./InfoTooltip";
 
 function App() {
