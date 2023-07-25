@@ -14,13 +14,13 @@ class Auth {
     }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
   }
 
-  authorize(data) {
+  login(email, password) {
     return fetch(`${this._options.baseUrl}/signin`, {
       method: "POST",
       headers: this._options.headers,
       body: JSON.stringify({
-        password: data.password,
-        email: data.email,
+        password: password,
+        email: email,
       }),
     }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
   }
