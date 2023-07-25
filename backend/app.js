@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 
+const cors = require('cors');
 const { PORT = 3000 } = require('./utils/constants');
 const { login, createUser } = require('./controllers/users');
 const handleErrors = require('./middlewares/handleErrors');
@@ -17,7 +18,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
