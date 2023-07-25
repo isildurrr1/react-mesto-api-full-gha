@@ -10,6 +10,7 @@ module.exports = (req, res, next) => {
   }
   const token = authorization.replace('Bearer ', '');
   let payload;
+  console.log(JWT_SECRET);
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'my-jwt-token');
   } catch (err) {
