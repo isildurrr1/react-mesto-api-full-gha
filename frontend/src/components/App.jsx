@@ -47,7 +47,7 @@ function App() {
       Promise.all([api.getProfileInfo(), api.getInitialCards()])
         .then(([userData, cardList]) => {
           setCurrentUser(userData);
-          setCards(cardList);
+          setCards(cardList.reverse());
         })
         .catch(err => console.log(err))
     }
@@ -104,7 +104,7 @@ function App() {
   function handleAddPlaceSubmit(data) {
     api.addNewCard(data)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch(error => console.error(error))
