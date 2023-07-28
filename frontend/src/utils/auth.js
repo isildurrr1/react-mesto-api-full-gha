@@ -1,46 +1,47 @@
-class Auth {
-  constructor(options) {
-    this._options = options;
-  }
+export const BASE_URL = 'https://api.isildurrr1.nomoredomains.xyz';
 
-  register(data) {
-    return fetch(`${this._options.baseUrl}/signup`, {
-      method: "POST",
-      headers: this._options.headers,
-      body: JSON.stringify({
-        password: data.password,
-        email: data.email,
-      })
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
+const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
   }
-
-  login(email, password) {
-    return fetch(`${this._options.baseUrl}/signin`, {
-      method: "POST",
-      headers: this._options.headers,
-      body: JSON.stringify({
-        password: password,
-        email: email,
-      }),
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
-  }
-
-  checkToken(token) {
-    return fetch(`${this._options.baseUrl}/users/me`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res)));
-  }
+  return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-const auth = new Auth({
-  baseUrl: "https://api.isildurrr1.nomoredomains.xyz",
-  headers: {
-    "Content-Type": "application/json" 
-  }
-});
+export const register = (email, password) => {
+  return fetch(`${BASE_URL}/signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      password: `${password}`,
+      email: `${email}`
+    })
+  }).then(res => checkResponse(res))
+}; 
 
-export default auth;
+export const login = (email, password) => {
+  return fetch(`${BASE_URL}/signin`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      password: `${password}`,
+      email: `${email}`
+    })
+  }).then(res => checkResponse(res))
+}; 
+
+export const checkToken = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    }
+  })
+  .then(res => res.json())
+  .then(data => data)
+} 
