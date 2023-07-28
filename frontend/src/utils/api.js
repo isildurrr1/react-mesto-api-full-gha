@@ -12,6 +12,7 @@ class Api {
   }
 
   getProfileInfo() {
+    this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`
     return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers
     })

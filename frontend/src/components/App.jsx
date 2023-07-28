@@ -40,14 +40,14 @@ function App() {
         })
         .catch(err => console.log(err));
     }
-  }, []);
+  }, [navigate]);
 
   React.useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getProfileInfo(), api.getInitialCards()])
         .then(([userData, cardList]) => {
           setCurrentUser(userData);
-          setCards(cardList);
+          setCards(cardList.data);
         })
         .catch(err => console.log(err))
     }
