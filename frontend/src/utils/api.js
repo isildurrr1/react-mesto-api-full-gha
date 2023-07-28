@@ -82,7 +82,7 @@ class Api {
   }
 }
 
-const token = localStorage.getItem('jwtToken');
+const token = localStorage.getItem('jwt');
 export const api = new Api({
   baseUrl: 'https://api.isildurrr1.nomoredomains.xyz',
   headers: {
