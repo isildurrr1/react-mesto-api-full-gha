@@ -54,15 +54,16 @@ function App() {
   },[loggedIn]);
 
   React.useEffect(() => {
-    auth.checkToken(localStorage.getItem('jwt'))
-    .then((res) => {
-      setLoggedIn(true);
-      setUsersMail(res.data.email);
-      navigate("/", {replace: true})
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      auth.checkToken(jwt)
+        .then((authData) => {
+          setUsersMail(authData.email);
+          setLoggedIn(true);
+          navigate('/', {replace: true});
+        })
+        .catch(err => console.log(err));
+    }
   },[navigate]);
 
 

@@ -4,7 +4,6 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function Main(props) {
     const currentUser = React.useContext(CurrentUserContext);
-
     return (
       <main className="content">
         <section className="profile">
@@ -20,7 +19,7 @@ function Main(props) {
           <button onClick={props.onAddPlace} className="profile__add" type="button"></button>
         </section>
         <section className="elements">
-            {props.cards.map((card) => (
+            {Array.from(props.cards).map((card) => (
                 <Card key={card._id} card={card} onCardClick={props.onCardClick} onCardLike={props.onCardLike} handleCardDelete={props.onCardDelete}/>
             ))}
         </section>

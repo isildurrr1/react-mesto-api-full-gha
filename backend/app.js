@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 
 const cors = require('cors');
+
 const { PORT = 3000 } = require('./utils/constants');
 const { login, createUser } = require('./controllers/users');
 const handleErrors = require('./middlewares/handleErrors');
