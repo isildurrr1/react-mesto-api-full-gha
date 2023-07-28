@@ -44,7 +44,7 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
-      Promise.all([api.getProfileInfo(), api.getCards()])
+      Promise.all([api.getProfileInfo(), api.getInitialCards()])
         .then(([userData, cardList]) => {
           setCurrentUser(userData);
           setCards(cardList);
